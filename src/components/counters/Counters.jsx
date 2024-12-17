@@ -35,10 +35,8 @@ export default function Counters() {
             (counter)=> (
         
                 <Counter 
-                    key={counter.id}
-                    // value={counter.value}
+                    // key={counter.id}
                     onDelete={handleDelete}
-                    // id={counter.id}
                     counter={counter}
                     >
 

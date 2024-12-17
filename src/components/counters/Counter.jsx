@@ -1,20 +1,20 @@
 import React,{useState} from 'react'
 // Child
 export default function Counter(props) {
-    const [counter,setCounter]=useState(props.counter.value)
-
+    // const [counter,setCounter]=useState(props.counter.value)
+    const {counter,onDelete}=props
     function formatCount(){
-        return counter ===0 ? "Zero" : counter
+        return counter.value ===0 ? "Zero" : counter.value
     }
 
     function getBadgeClasses(){
         let classes= 'badge m-2 '
-        classes+=counter===0?'bg-warning':'bg-primary'
+        classes+=counter.value===0?'bg-warning':'bg-primary'
         return classes;
     }
 
     const handleIncrement = () =>{
-        setCounter(counter+1)
+        // setCounter(counter+1)
     }
 
     // const deleteHandler= ()=>{
@@ -28,7 +28,7 @@ export default function Counter(props) {
       <button className='btn btn-secondary btn-sm' onClick={handleIncrement}>Increment</button>
       <button 
         className='btn btn-danger btn-sm m-2' 
-        onClick={()=>props.onDelete(props.counter.id)}>
+        onClick={()=>onDelete(counter.id)}>
             Delete
         </button>
 
