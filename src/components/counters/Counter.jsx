@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 export default function Counter() {
-    const [counter]=useState(10)
+    const [counter,setCounter]=useState(0)
 
     const [tags]=useState(['tag1','tag2','tag3'])
 
@@ -29,10 +29,14 @@ export default function Counter() {
         }
     }
 
+    const handleIncrement = () =>{
+        setCounter(counter+1)
+    }
+
   return (
     <div>
       <h1 className={getBadgeClasses()}>{formatCount()}</h1>
-      <button className='btn btn-secondary bnt-sm'>Increment</button>
+      <button className='btn btn-secondary bnt-sm' onClick={handleIncrement}>Increment</button>
       {renderTags()}
     </div>
   )
