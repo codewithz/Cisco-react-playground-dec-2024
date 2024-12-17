@@ -15,17 +15,25 @@ export default function Counter() {
         return classes;
     }
 
+    function renderTags(){
+        if(tags.length === 0){
+            return <p>There are no tags</p>
+        }else{
+            return <ul>
+            {
+                tags.map((tag)=>(
+                    <li key={tag}>{tag}</li>
+                ))
+            }
+          </ul>
+        }
+    }
+
   return (
     <div>
       <h1 className={getBadgeClasses()}>{formatCount()}</h1>
       <button className='btn btn-secondary bnt-sm'>Increment</button>
-      <ul>
-        {
-            tags.map((tag)=>(
-                <li key={tag}>{tag}</li>
-            ))
-        }
-      </ul>
+      {renderTags()}
     </div>
   )
 }
