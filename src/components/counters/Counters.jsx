@@ -22,6 +22,12 @@ export default function Counters() {
             counters.map((c)=>c)
         )
     }
+    const handleDecrement= (counter)=>{
+        counters.filter((c)=>c.id==counter.id)[0].value--;
+        setCounters(
+            counters.map((c)=>c)
+        )
+    }
 
     const handleReset= ()=>{
         setCounters(
@@ -46,6 +52,7 @@ export default function Counters() {
                     onDelete={handleDelete}
                     onIncrement={handleIncrement}
                     counter={counter}
+                    onDecrement={handleDecrement}
                     >
 
                     <h4>Counter #{counter.id}</h4>
