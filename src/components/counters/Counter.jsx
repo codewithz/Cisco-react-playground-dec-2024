@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 // Child
 export default function Counter(props) {
-    // const [counter,setCounter]=useState(props.counter.value)
-    const {counter,onDelete}=props
+    // const [counter,setCounter]=useState(props.counter.value)   //State
+    const {counter,onDelete,onIncrement}=props                    //Props coming from Parent Component
     function formatCount(){
         return counter.value ===0 ? "Zero" : counter.value
     }
@@ -14,7 +14,7 @@ export default function Counter(props) {
     }
 
     const handleIncrement = () =>{
-        // setCounter(counter+1)
+        onIncrement(counter)
     }
 
     // const deleteHandler= ()=>{
