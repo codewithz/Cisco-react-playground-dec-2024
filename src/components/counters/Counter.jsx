@@ -1,9 +1,7 @@
 import React,{useState} from 'react'
-
+// Child
 export default function Counter(props) {
     const [counter,setCounter]=useState(props.value)
-
-    // const [tags]=useState(['tag1','tag2','tag3'])
 
     function formatCount(){
         return counter ===0 ? "Zero" : counter
@@ -15,20 +13,6 @@ export default function Counter(props) {
         return classes;
     }
 
-    // function renderTags(){
-    //     if(tags.length === 0){
-    //         return <p>There are no tags</p>
-    //     }else{
-    //         return <ul>
-    //         {
-    //             tags.map((tag)=>(
-    //                 <li key={tag}>{tag}</li>
-    //             ))
-    //         }
-    //       </ul>
-    //     }
-    // }
-
     const handleIncrement = () =>{
         setCounter(counter+1)
     }
@@ -37,8 +21,14 @@ export default function Counter(props) {
     <div className='m-5'>
     {props.children}
       <h1 className={getBadgeClasses()}>{formatCount()}</h1>
-      <button className='btn btn-secondary bnt-sm' onClick={handleIncrement}>Increment</button>
-      {/* {renderTags()} */}
+      <button className='btn btn-secondary btn-sm' onClick={handleIncrement}>Increment</button>
+      <button 
+        className='btn btn-danger btn-sm m-2' 
+        onClick={props.onDelete}
+        >
+            Delete
+        </button>
+
     </div>
   )
 }

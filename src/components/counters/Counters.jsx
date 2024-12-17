@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Counter from './Counter'
-
+// Parent
 export default function Counters() {
 
     const [counters]=useState([
@@ -11,13 +11,22 @@ export default function Counters() {
         {id:5,value:1},
     ])
 
+    const handleDelete = ()=>{
+        console.log("Counter has been deleted")
+    }
+
   return (
     <div>
       {
         counters.map(
             (counter)=> (
         
-                <Counter key={counter.id} value={counter.value}>
+                <Counter 
+                    key={counter.id}
+                    value={counter.value}
+                    onDelete={handleDelete}
+                    >
+
                     <h4>Counter #{counter.id}</h4>
 
                 </Counter>
