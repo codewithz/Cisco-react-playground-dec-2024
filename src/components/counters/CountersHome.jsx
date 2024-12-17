@@ -1,11 +1,11 @@
 import React from 'react'
-import Counter from './Counter'
+import Counters from './Counters'
 
 export default function CountersHome() {
   return (
     <div>
       <h3>Counters Application</h3>
-      <Counter />
+      <Counters />
     </div>
   )
 }

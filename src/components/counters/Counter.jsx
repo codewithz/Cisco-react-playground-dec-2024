@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 
-export default function Counter() {
-    const [counter,setCounter]=useState(0)
+export default function Counter(props) {
+    const [counter,setCounter]=useState(props.value)
 
-    const [tags]=useState(['tag1','tag2','tag3'])
+    // const [tags]=useState(['tag1','tag2','tag3'])
 
     function formatCount(){
         return counter ===0 ? "Zero" : counter
@@ -15,29 +15,29 @@ export default function Counter() {
         return classes;
     }
 
-    function renderTags(){
-        if(tags.length === 0){
-            return <p>There are no tags</p>
-        }else{
-            return <ul>
-            {
-                tags.map((tag)=>(
-                    <li key={tag}>{tag}</li>
-                ))
-            }
-          </ul>
-        }
-    }
+    // function renderTags(){
+    //     if(tags.length === 0){
+    //         return <p>There are no tags</p>
+    //     }else{
+    //         return <ul>
+    //         {
+    //             tags.map((tag)=>(
+    //                 <li key={tag}>{tag}</li>
+    //             ))
+    //         }
+    //       </ul>
+    //     }
+    // }
 
     const handleIncrement = () =>{
         setCounter(counter+1)
     }
 
   return (
-    <div>
+    <div className='m-5'>
       <h1 className={getBadgeClasses()}>{formatCount()}</h1>
       <button className='btn btn-secondary bnt-sm' onClick={handleIncrement}>Increment</button>
-      {renderTags()}
+      {/* {renderTags()} */}
     </div>
   )
 }
