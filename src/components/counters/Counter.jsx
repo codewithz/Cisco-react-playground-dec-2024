@@ -35,6 +35,7 @@ export default function Counter(props) {
 
   return (
     <div className='m-5'>
+    {props.children}
       <h1 className={getBadgeClasses()}>{formatCount()}</h1>
       <button className='btn btn-secondary bnt-sm' onClick={handleIncrement}>Increment</button>
       {/* {renderTags()} */}
