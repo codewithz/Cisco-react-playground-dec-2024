@@ -1,4 +1,4 @@
-Notes: 
+Notes: https://github.com/codewithz/Cisco-react-playground-dec-2024/tree/master/notes
 
 JS Playground:  https://github.com/codewithz/Cisco-JS-Playground-dec-2024
 
