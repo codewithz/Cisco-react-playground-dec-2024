@@ -4,14 +4,15 @@ import { getColors } from "./colors";
 export default function MyComponent() {
     const [data, setData] = useState([]);
 
-    useEffect( () => {
-        async function setColors(){
-       const colors=await getColors()
-       setData(colors)
+    useEffect(() => {
+        async function setColors() {
+            const colors = await getColors()
+            setData(colors)
+    
         }
-
+        console.log("Inside Use Effect!!")
         setColors()
-    }, [])
+    },[])
 
     return (
         <div>

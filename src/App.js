@@ -3,6 +3,7 @@ import './App.css';
 import Home from './components/basics/Home';
 import CountersHome from './components/counters/CountersHome';
 import AsynchronousHome from './components/asynchronous/AsynchronousHome';
+import FormsHome from './components/forms/FormsHome';
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
     <div className="App">
       {/* <Home /> */}
       {/* <CountersHome /> */}
-      <AsynchronousHome />
+      {/* <AsynchronousHome /> */}
+      <FormsHome />
     </div>
   );
 }
