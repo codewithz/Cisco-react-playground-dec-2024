@@ -9,7 +9,10 @@ export default function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setErrors(validate(account))
+        const errorsDuringSubmit=validate();
+        setErrors(errorsDuringSubmit)
+        
+        
         if (errors) {
             return;
         } else {
@@ -17,7 +20,7 @@ export default function LoginForm() {
         }
     }
 
-    const validate = (account) => {
+    const validate = () => {
 
         const formErrors={}
 
@@ -29,7 +32,7 @@ export default function LoginForm() {
         }
         
 
-        return formErrors;
+        return Object.keys(formErrors).length === 0 ?null:formErrors;
     }
 
 
@@ -60,7 +63,7 @@ export default function LoginForm() {
                         className="form-control mt-2"
                         onChange={handleChange}
                     />
-                   {errors.username &&  <div className='alert alert-danger'>Username is empty</div>}
+                   {(errors && errors.username) &&  <div className='alert alert-danger'>Username is empty</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
@@ -70,7 +73,7 @@ export default function LoginForm() {
                         className="form-control mt-2"
                         onChange={handleChange}
                     />
-                     {errors.password &&  <div className='alert alert-danger'>Password  is empty</div>}
+                     {(errors && errors.password) &&  <div className='alert alert-danger'>Password  is empty</div>}
                 </div>
                 <button className="btn btn-warning btn-sm m-2">Login</button>
             </form>
