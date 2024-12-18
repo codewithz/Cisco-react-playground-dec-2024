@@ -60,6 +60,7 @@ export default function LoginForm() {
                         className="form-control mt-2"
                         onChange={handleChange}
                     />
+                   {errors.username &&  <div className='alert alert-danger'>Username is empty</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
@@ -69,6 +70,7 @@ export default function LoginForm() {
                         className="form-control mt-2"
                         onChange={handleChange}
                     />
+                     {errors.password &&  <div className='alert alert-danger'>Password  is empty</div>}
                 </div>
                 <button className="btn btn-warning btn-sm m-2">Login</button>
             </form>
