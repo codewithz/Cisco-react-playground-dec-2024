@@ -13,7 +13,7 @@ export default function LoginForm() {
         setErrors(errorsDuringSubmit)
         
         
-        if (errors) {
+        if (errorsDuringSubmit) {
             return;
         } else {
             loginHandler(account);
