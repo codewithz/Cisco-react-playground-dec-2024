@@ -35,6 +35,8 @@ export default function LoginForm() {
         return Object.keys(formErrors).length === 0 ?null:formErrors;
     }
 
+    
+
 
     const handleChange = (event) => {
 
@@ -48,7 +50,30 @@ export default function LoginForm() {
         const updatedValues = { [id]: value }
         setAccount((prevState) => ({ ...prevState, ...updatedValues }))
 
+        const errorMessage=validateProperty({id,value});
+        if(errorMessage){
+            setErrors((prevState)=>({...prevState,[id]:errorMessage}))
+        }else{
+            delete errors[id]
+        }
+
         // console.log("State:",account)
+    }
+
+    const validateProperty= ({id,value})=>{
+        if(id ==="username"){
+            if(value.trim()===""){
+                return "Username is blank"
+            }
+        }
+
+        if(id ==="password"){
+            if(value.trim()===""){
+                return "Password is required"
+            }
+        }
+
+
     }
 
     return (
