@@ -12,24 +12,46 @@ export default function LoginForm() {
         loginHandler(account);
     }
 
-    const handleUsernameChange= (event)=>{
-        const username=event.target.value
-        // setAccount(getUpdatedAccount(account))
+    // const handleUsernameChange= (event)=>{
+    //     const username=event.target.value
+    //     const id=event.target.id;
 
-        // function getUpdatedAccount(prevState){
-        //     return {...prevState,username:username}
-        // }
+    //     console.log("Id:",id)
+    //     console.log("Value:",username)
+    //     // setAccount(getUpdatedAccount(account))
 
-        setAccount((prevState)=>({...prevState,username:username}))
+    //     // function getUpdatedAccount(prevState){
+    //     //     return {...prevState,username:username}
+    //     // }
 
-        console.log("State:",account)
-    }
+    //     setAccount((prevState)=>({...prevState,username:username}))
 
-    const handlePasswordChange= (event)=>{
-        const password=event.target.value
-    
+    //     console.log("State:",account)
+    // }
 
-        setAccount((prevState)=>({...prevState,password:password}))
+    // const handlePasswordChange= (event)=>{
+    //     const password=event.target.value
+        
+    //     const id=event.target.id;
+
+    //     console.log("Id:",id)
+    //     console.log("Value:",password)
+
+    //     setAccount((prevState)=>({...prevState,password:password}))
+
+    //     console.log("State:",account)
+    // }
+
+    const handleChange= (event)=>{
+        
+        
+        const id=event.target.id;
+        const value=event.target.value
+
+        console.log("Id:",id)
+        console.log("Value:",value)
+        const updatedValues={[id]:value}
+        setAccount((prevState)=>({...prevState,...updatedValues}))
 
         console.log("State:",account)
     }
@@ -44,7 +66,7 @@ export default function LoginForm() {
                 id="username" 
                 type="text" 
                 className="form-control mt-2"
-                onChange={handleUsernameChange}
+                onChange={handleChange}
                 />
         </div>
         <div className="form-group">
@@ -53,7 +75,7 @@ export default function LoginForm() {
                 id="password" 
                 type="text" 
                 className="form-control mt-2"
-                onChange={handlePasswordChange}
+                onChange={handleChange}
                 />
         </div>
         <button className="btn btn-warning btn-sm m-2">Login</button>
